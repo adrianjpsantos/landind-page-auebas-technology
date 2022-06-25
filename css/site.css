@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    width: 100%;
+    height: 100%;
+    background: rgb(48, 6, 90);
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo{
+    height: 100px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px 0px 40px;
+    font-size: 0.8rem;
+}
+
+nav{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    gap: 20px;
+
+}
+
+.nav-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu>li{
+    padding: 5px;
+    color: white;
+    border-bottom: 3px solid rgb(48, 6, 90);
+}
+.nav-menu>li:hover{
+    color: white;
+    border-bottom: 3px solid rgb(233, 94, 2);
+}
+
+.nav-button{
+    padding: 5px 10px;
+    color: rgb(48, 6, 90);
+    background: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-weight: 700;
+}
+
+.nav-button:hover{
+    background: #131313;
+    color: white;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+main>aside{
+    width: 100%;
+    padding: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+aside>h2{
+    color: rgb(251, 45, 62);
+    font-size: 3rem;
+}
+aside>p{
+    font-size: 1rem;
+}
+
+aside>form{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form>input{
+    width: 400px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+form>button{
+    width:50%;
+    border-radius: 20px;
+    background: rgb(251, 45, 62);
+    font-weight: 700;
+    color: white;
+    padding: 10px;
+}
+form>button:hover{
+    background: rgb(233, 94, 2);
+}
+
+.resp{
+    width: 100%;
+    height: auto;
+}
+
+.hamburguer-menu{
+    display: none;
+}
+
+@media(max-width: 900px) {
+    main{
+        flex-direction: column;
+    }
+    aside{
+        order: 1;
+    }
+
+    .logo{
+        height: 50px;
+    }
+    nav{
+        display: none;
+        flex-wrap: wrap;
+    }
+    .nav-button>li{
+        padding: 0;
+    }
+
+    /*Menu Hemburguer*/
+    .hamburguer-menu{
+        display: block;
+    }
+
+    #menu-toggle{
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-btn>span{
+        transform: rotate(45deg);
+    }
+
+    #menu-toggle:checked + .menu-btn>span::before{
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu-toggle:checked + .menu-btn>span::after{
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu-toggle:checked ~ .menu-box{
+        right: 0 !important;
+    }
+
+    .menu-btn{
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu-btn>span,
+    .menu-btn>span:before,
+    .menu-btn>span:after{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+        transition-duration: .25s;
+    }
+
+    .menu-btn>span:before{
+        content:'';
+        top: -8px;
+    }
+
+    .menu-btn>span:after{
+        content: '';
+        top: 8px;
+    }
+
+    .menu-box{
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 24px;
+        list-style: none;
+        background-color: rgb(48, 6, 90);
+        box-shadow: 2px 2px 6px rgba(0,0,0,4);
+        transition-duration: .25s;
+    }
+
+    .menu-item{
+        display: block;
+        margin: 12px 0px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition-duration: .25s;
+        border-bottom: 3px solid rgb(48, 6, 90);
+    }
+
+    .menu-item:hover{
+        border-bottom: 3px solid rgb(251, 45, 62);
+    }
+}
+
+
